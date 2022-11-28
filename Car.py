@@ -12,9 +12,6 @@ class Car(GameObject):
         self.shapesize(stretch_wid=1, stretch_len=1, outline=None)
 
     # Method for control
-    def move(self):
-        self.forward(0)
-
     def control_right(self):
         self.setx(self.xcor() + self.speed)
 
@@ -25,4 +22,4 @@ class Car(GameObject):
         self.score = self.score + 1
 
     def decrease_hearts(self, damage):
-        self.hearts = self.score - damage
+        self.hearts = self.hearts - damage

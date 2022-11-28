@@ -6,6 +6,7 @@ class Road:
         self.width = width
         self.height = height
         self.pen = turtle.Turtle()
+        self.pencil = turtle.Turtle()
 
     def make(self):
         self.pen.penup()
@@ -26,7 +27,14 @@ class Road:
         self.pen.penup()
         self.pen.hideturtle()
         self.pen.speed(0)
-        self.pen.setposition(210, 400)
-        self.pen.write(text_heart, font=("Arial", 16, "normal"))
-        self.pen.setposition(-290, 400)
+        self.pen.setposition(-290, 250)
         self.pen.write(text_score, font=("Arial", 16, "normal"))
+
+    def see_heart(self, obj):
+        self.pencil.undo()
+        text_heart = f"Heart: {obj.hearts}"
+        self.pencil.speed(0)
+        self.pencil.penup()
+        self.pencil.hideturtle()
+        self.pencil.setposition(210, 250)
+        self.pencil.write(text_heart, font=("Arial", 16, "normal"))
