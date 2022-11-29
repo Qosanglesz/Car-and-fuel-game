@@ -1,4 +1,5 @@
 import turtle
+from DatabaseGame import Database
 
 
 class Road:
@@ -49,3 +50,4 @@ class Road:
         self.pencil.hideturtle()
         self.pencil.setposition(210, 250)
         self.pencil.write(text_heart, font=("Arial", 16, "normal"))
+

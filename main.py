@@ -3,6 +3,7 @@ from road import Road
 from Car import Car
 from Fuel import Fuel
 from AvoidObject import AvoidObject, Hole, Truck, Dog
+from DatabaseGame import Database
 import turtle
 import random
 
@@ -13,10 +14,12 @@ road.make()
 
 random_x = [-190, -140, 90, 40, 40, 90, 140, 190]
 random_y = [600, 1000, 1200, 1400]
+player = input("Player name: ")
 p1 = Car("circle", "red", position=(0, -250))
 truck = Truck("square", "orange", (random.choice(random_x), random.choice(random_y)))
 hole = Hole("circle", "grey", (random.choice(random_x), random.choice(random_y)))
 dog = Dog("square", "yellow", (random.choice(random_x), random.choice(random_y)))
+db = Database(player, p1.score)
 
 fuels = []
 for _ in range(3):
