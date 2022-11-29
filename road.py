@@ -1,5 +1,5 @@
 import turtle
-from DatabaseGame import Database
+from collections import Counter
 
 
 class Road:
@@ -26,12 +26,12 @@ class Road:
     def game_over(self, obj):
         self.over.penup()
         self.over.speed(0)
-        self.over.goto(0, 0)
+        self.over.goto(0, 50)
         self.over.color("Red")
         self.over.write("WASTED", align="center", font=("Tahoma", 20, "bold"))
-        self.over.goto(0, -20)
+        self.over.goto(0, 30)
         self.over.color("black")
-        self.over.write(f"Score:{obj.score}", align="center", font=("Tahoma", 18, "bold"))
+        self.over.write(f"current score: {obj.score}", align="center", font=("Tahoma", 18, "bold"))
 
     def see_status(self, obj):
         self.pen.undo()
@@ -51,3 +51,14 @@ class Road:
         self.pencil.setposition(210, 250)
         self.pencil.write(text_heart, font=("Arial", 16, "normal"))
 
+    def score_board(self, data_dict):
+        self.over.goto(0, self.over.ycor() - 50)
+        self.over.color("Red")
+        self.over.write("TOP 3 SCORE", align="center", font=("Tahoma", 20, "bold"))
+        self.over.goto(0, self.over.ycor() - 25)
+        top_3player = dict(Counter(data_dict).most_common(3))
+        self.over.color("Black")
+        for keys, values in top_3player.items():
+            msg = f"{keys:<5}{str(values):>5}"
+            self.over.write(msg, align='center', font=("Tahoma", 15, "bold"))
+            self.over.goto(0, self.over.ycor()-25)

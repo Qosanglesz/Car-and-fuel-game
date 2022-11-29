@@ -13,13 +13,13 @@ stage.init_screen()
 road.make()
 
 random_x = [-190, -140, 90, 40, 40, 90, 140, 190]
-random_y = [600, 1000, 1200, 1400]
+random_y = [600, 1000, 1200, 1400, 1800, 2100]
 player = turtle.textinput("Name", "Enter your car name: ")
 p1 = Car("circle", "red", position=(0, -250))
 truck = Truck("square", "orange", (random.choice(random_x), random.choice(random_y)))
 hole = Hole("circle", "grey", (random.choice(random_x), random.choice(random_y)))
 dog = Dog("square", "yellow", (random.choice(random_x), random.choice(random_y)))
-db = Database(player, p1.score)
+
 
 fuels = []
 for _ in range(3):
@@ -44,6 +44,11 @@ while True:
         stage.display.screen.bgcolor("Grey")
         road.game_over(p1)
         p1.speed = 0
+        admin = Database(player, p1.score)
+        admin.write_database()
+        score = admin.sorted_score()
+        road.score_board(score)
+        turtle.exitonclick()
     for fuel in fuels:
         fuel.move()
         if fuel.ycor() <= -300:
