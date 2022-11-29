@@ -14,7 +14,7 @@ road.make()
 
 random_x = [-190, -140, 90, 40, 40, 90, 140, 190]
 random_y = [600, 1000, 1200, 1400]
-player = input("Player name: ")
+player = turtle.textinput("Name", "Enter your car name: ")
 p1 = Car("circle", "red", position=(0, -250))
 truck = Truck("square", "orange", (random.choice(random_x), random.choice(random_y)))
 hole = Hole("circle", "grey", (random.choice(random_x), random.choice(random_y)))
