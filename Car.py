@@ -23,3 +23,5 @@ class Car(GameObject):
 
     def decrease_hearts(self, damage):
         self.hearts = self.hearts - damage
+        if self.hearts < 0:
+            self.hearts = 0

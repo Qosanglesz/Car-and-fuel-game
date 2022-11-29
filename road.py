@@ -7,6 +7,8 @@ class Road:
         self.height = height
         self.pen = turtle.Turtle()
         self.pencil = turtle.Turtle()
+        self.over = turtle.Turtle()
+        self.over.hideturtle()
 
     def make(self):
         self.pen.penup()
@@ -20,10 +22,19 @@ class Road:
             self.pen.forward(self.height)
             self.pen.left(90)
 
+    def game_over(self, obj):
+        self.over.penup()
+        self.over.speed(0)
+        self.over.goto(0, 0)
+        self.over.color("Red")
+        self.over.write("WASTED", align="center", font=("Tahoma", 20, "bold"))
+        self.over.goto(0, -20)
+        self.over.color("black")
+        self.over.write(f"Score:{obj.score}", align="center", font=("Tahoma", 18, "bold"))
+
     def see_status(self, obj):
         self.pen.undo()
         text_score = f"Score:{obj.score}"
-        text_heart = f"Heart: {obj.hearts}"
         self.pen.penup()
         self.pen.hideturtle()
         self.pen.speed(0)

@@ -37,6 +37,10 @@ turtle.listen()
 
 while True:
     turtle.update()
+    if p1.hearts == 0:
+        stage.display.screen.bgcolor("Grey")
+        road.game_over(p1)
+        p1.speed = 0
     for fuel in fuels:
         fuel.move()
         if fuel.ycor() <= -300:
@@ -53,4 +57,3 @@ while True:
             p1.decrease_hearts(each_obj.damage)
             each_obj.goto(random.choice(random_x), random.choice(random_y))
             road.see_heart(p1)
-
