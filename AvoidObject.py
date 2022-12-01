@@ -15,7 +15,7 @@ class Hole(AvoidObject):
         super().__init__(shape, color, position)
         self.color("black")
         self.shape("circle")
-        self.shapesize(stretch_wid=2, stretch_len=2, outline=None)
+        self.shapesize(stretch_wid=2.5, stretch_len=2.5, outline=None)
         self.speed = 0.1
         self.damage = 1
         self.setheading(270)
@@ -26,8 +26,8 @@ class Dog(AvoidObject):
         super().__init__(shape, color, position)
         self.color("yellow")
         self.shape("square")
-        self.shapesize(stretch_wid=0.5, stretch_len=1, outline=None)
-        self.speed = 0.5
+        self.shapesize(stretch_wid=1, stretch_len=2, outline=None)
+        self.speed = 0.3
         self.damage = 2
         self.setheading(270)
 
@@ -35,9 +35,9 @@ class Dog(AvoidObject):
 class Truck(AvoidObject):
     def __init__(self, shape, color, position):
         super().__init__(shape, color, position)
-        self.color("red")
+        self.color("orange")
         self.shape("square")
-        self.shapesize(stretch_wid=1, stretch_len=3, outline=None)
+        self.shapesize(stretch_wid=2, stretch_len=4, outline=None)
         self.speed = 0.2
         self.damage = 3
         self.setheading(270)

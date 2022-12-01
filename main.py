@@ -1,31 +1,31 @@
+import turtle
 from screen import Screen
 from road import Road
 from Car import Car
 from Fuel import Fuel
-from AvoidObject import AvoidObject, Hole, Truck, Dog
+from AvoidObject import Hole, Truck, Dog
 from DatabaseGame import Database
-import turtle
 import random
+import os
 
 stage = Screen()
 road = Road(400, 900)
 stage.init_screen()
 road.make()
 
-random_x = [-190, -140, 90, 40, 40, 90, 140, 190]
-random_y = [600, 1000, 1200, 1400, 1800, 2100]
+random_x = [-180, -140, 90, 40, 40, 90, 140, 180]
+random_y = [1000, 1200, 1400, 1600, 1800, 2000, 2200]
+
+fuels = list()
+avoids = list()
 player = turtle.textinput("Name", "Enter your car name: ")
-p1 = Car("circle", "red", position=(0, -250))
+p1 = Car("square", "red", position=(0, -250))
 truck = Truck("square", "orange", (random.choice(random_x), random.choice(random_y)))
 hole = Hole("circle", "grey", (random.choice(random_x), random.choice(random_y)))
 dog = Dog("square", "yellow", (random.choice(random_x), random.choice(random_y)))
 
-
-fuels = []
-for _ in range(3):
+for _ in range(5):
     fuels.append(Fuel("square", "green", (random.choice(random_x), random.choice(random_y))))
-
-avoids = []
 for _ in range(3):
     avoids.append(truck)
     avoids.append(hole)
@@ -37,12 +37,12 @@ turtle.onkey(p1.control_right, 'd')
 turtle.onkey(p1.control_left, 'a')
 turtle.listen()
 
-
 while True:
     turtle.update()
     if p1.hearts == 0:
         stage.display.screen.bgcolor("Grey")
         road.game_over(p1)
+        os.system("die.wav")
         p1.speed = 0
         admin = Database(player, p1.score)
         admin.write_database()

@@ -7,7 +7,7 @@ class Fuel(GameObject):
         self.shape("square")
         self.color("green")
         self.shapesize(stretch_wid=1.5, stretch_len=1.5, outline=None)
-        self.speed = 0.3
+        self.speed = 0.5
         self.setheading(270)
 
     def move(self):
