@@ -1,5 +1,7 @@
 import turtle
 
+# Every object in game use this class to Superclass
+
 
 class GameObject(turtle.Turtle):
     def __init__(self, shape, color, position):

@@ -2,7 +2,7 @@ from Gameobject import GameObject
 
 
 class Car(GameObject):
-    def __init__(self, shape, color, position):
+    def __init__(self, shape="square", color="red", position=(0, -250)):
         # Basic property of object in this game that inheritance form GameObject
         super().__init__(shape, color, position)
         # Additional property for car.
@@ -22,9 +22,11 @@ class Car(GameObject):
         if self.xcor() < -200:
             self.setx(-180)
 
+    # Method for add score
     def increase_score(self):
         self.score = self.score + 1
 
+    # Method for minus heart
     def decrease_hearts(self, damage):
         self.hearts = self.hearts - damage
         if self.hearts < 0:

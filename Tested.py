@@ -7,5 +7,3 @@ print(convected_data)
 top3 = dict(Counter(convected_data).most_common(3))
 print(top3)
 
-
-

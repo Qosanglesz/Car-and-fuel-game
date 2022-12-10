@@ -21,7 +21,8 @@ class Database:
             with open("database.json", "w") as file:
                 json.dump(new_data, file, indent=4)
 
-    def sorted_score(self):
+    @staticmethod
+    def sorted_score():
         with open('database.json', 'r') as data_file:
             data = json.load(data_file)
         sorted_data = sorted(data.items(), key=lambda x: x[1], reverse=True)
