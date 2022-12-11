@@ -2,7 +2,7 @@ from turtle import Turtle
 
 
 class Screen:
-    def init_screen(self):
+    def __init__(self):
         self.display = Turtle()
         self.display.screen.setup(600, 600)
         self.display.hideturtle()

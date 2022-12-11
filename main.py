@@ -10,7 +10,6 @@ import os
 # Screen and road set up
 stage = Screen()
 road = Road(400, 900)
-stage.init_screen()
 road.make()
 # Specific X and Y for random module
 random_x = [-180, -140, 90, 40, 40, 90, 140, 180]
