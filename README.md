@@ -1,7 +1,7 @@
 # Car and fuel game
 ## OVERVIEW
 Concept of this game is to control a-car in X-axis(left or right) on the road and get fuel to increase score. while the car is running. The player must avoid an object such as a road hole, car and dog. a player will have 5 hearts if their hearts decrease to zero.the game will be over.
-
+### By Wissarut Kanasub SKE20
 
 ## Required libraries and tools
 - Coding on python V. 3.10
